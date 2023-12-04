@@ -22,11 +22,7 @@ We now invite you to dive into the captivating world of real-time reconfiguratio
 
 ### 1. How to install ?
 
----
-
 #### A. Use the following command to clone the repository from GitHub 
-
----
 
 ```git clone https://github.com/FeitanSama/projetrl```
 
@@ -35,8 +31,6 @@ You can also download the archive in zip format from github if you don't have an
 ---
 
 #### B. Install dependencies
-
----
 
 By placing yourself at the root of the project and having installed python beforehand
 
@@ -50,8 +44,6 @@ By placing yourself at the root of the project and having installed python befor
 
 #### C. Launch the dashboard
 
----
-
 Still at the root of the project, to launch the dashboard the command is as follows
 
 ```python main.py```
@@ -59,8 +51,6 @@ Still at the root of the project, to launch the dashboard the command is as foll
 ---
 
 #### D. Access the dashboard
-
----
 
 To access the dashboard, simply open your internet browser and go to the following local page on your computer
 
