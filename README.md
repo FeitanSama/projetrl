@@ -18,10 +18,6 @@ We now invite you to dive into the captivating world of real-time reconfiguratio
 
 ### 1. How to install ?
 
-Welcome to the installation section of the Real-Time Reconfiguration of a Wireless Network project. To take full advantage of our interactive dashboard, follow these simple steps to deploy the project on your machine. Installation is quick and will allow you to quickly access the dynamic features of the dashboard.
-
-Please follow the instructions below carefully to ensure a smooth deployment. If you encounter any problems, refer to the User Guide for detailed information or do not hesitate to contact us for assistance. Ready to get started? Follow the installation steps below and immerse yourself in the exciting world of real-time reconfiguration of wireless networks.
-
 #### A. Use the following command to clone the repository from GitHub 
 
 ```git clone https://github.com/FeitanSama/projetrl```
@@ -36,20 +32,20 @@ By placing yourself at the root of the project and having installed python befor
 ```python -m pip install -r requirements.txt```
 
 
+### 2. How to launch ?
+
 #### C. Launch the dashboard
 
 Still at the root of the project, to launch the dashboard the command is as follows
 
 ```python main.py```
 
-#### D. access the dashboard
+#### D. Access the dashboard
 
 To access the dashboard, simply open your internet browser and go to the following local page on your computer
 
 ```https://localhost:8080```
 
-### 2. Configuration
-### 3. Launch Dashboard
 
 --- 
 
