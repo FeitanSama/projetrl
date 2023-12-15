@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+### LIBS
+
 import numpy as np
 import random
 import argparse
@@ -17,38 +19,33 @@ class params():
 	def log(ed,params,j):
 		print(params.xesults[j].dr, ed.H[ed.bestbs.id].id,j,ed.H[ed.bestbs.id].time)
 
-params.range = 14000
-params.d0 = 40.0
-params.gamma = 2.2394
-params.Lpld0 = 95.0038
-params.GL = 0
-params.distribution  = [0.1, 0.2, 0.2, 0.2, 0.2, 0.1]
-
-params.algo = "Q-learning" #, "markov", "exp3", "random", "bayesUCB", "thompson", "UCB", "klUCB"])
-params.nrBS = 1
-params.nrED = 100
-params.ps  = 10
-params.period_mn = 1
-
-params.bwSet  = [125,250,500]
-params.powerSet = [11,12,13,14]
-params.crSet  = [1,2,3,4]
-params.sfSet  = [7, 8, 9, 10, 11, 12]
-params.freqSet = [868100]
-
-params.capture, params.interaction              = qos.getInteractionMatrix(True, True)
-params.nrPkt    = 50 #650 # 2min #3.58j chaque 4min
-params.tau      = 0.1
-params.discount = 0.9
-params.alpha    = 0.9
-params.snrx   = [-20,-17.5,-15,-12.5,-10,-7.5]
-params.drx    = [0.25,0.44,0.98,1.76,3.125,5.47]
-params.sensi = qos.getSensi()
-params.roopath = "./---"
-
-# 6 simulator
-params.objective                                                                            = lambda pkt:pkt.dr_mean
-params.topopath                                                                             = "../res/"
+params.range        				= 14000
+params.d0           				= 40.0
+params.gamma        				= 2.2394
+params.Lpld0        				= 95.0038
+params.GL           				= 0
+params.distribution 				= [0.1, 0.2, 0.2, 0.2, 0.2, 0.1]
+params.algo         				= "ANN" #, "markov", "exp3", "random", "bayesUCB", "thompson", "UCB", "klUCB"])
+params.nrBS         				= 1
+params.nrED         				= 100
+params.ps           				= 10
+params.period_mn    				= 1
+params.bwSet  						= [125,250,500]
+params.powerSet 					= [11,12,13,14]
+params.crSet  						= [1,2,3,4]
+params.sfSet  						= [7, 8, 9, 10, 11, 12]
+params.freqSet 						= [868100]
+params.capture, params.interaction 	= qos.getInteractionMatrix(True, True)
+params.nrPkt    					= 50 #650 # 2min #3.58j chaque 4min
+params.tau      					= 0.1
+params.discount 					= 0.9
+params.alpha    					= 0.9
+params.snrx   						= [-20,-17.5,-15,-12.5,-10,-7.5]
+params.drx    						= [0.25,0.44,0.98,1.76,3.125,5.47]
+params.sensi 						= qos.getSensi()
+params.roopath 						= "./---"
+params.objective 					= lambda pkt:pkt.dr_mean
+params.topopath  					= "../res/"
 
 class a():
 	pass
@@ -69,9 +66,9 @@ def sim_transmit(env, ed, bsDict, server):
 		yield env.timeout(ed.period - ed.time - ed.wait)
 
 def run(params):
-	params.period	  = int(params.period_mn*60*1000)
-	params.sim_time = int(params.period*params.nrPkt*2)
-	params.path1     = params.roopath+"/"+str(params.algo)+"/"+str(params.nrBS)+"_"+str(params.nrED)+"_"+format(params.period_mn,'03')+"_"+str(params.ps)
+	params.period	  	= int(params.period_mn*60*1000)
+	params.sim_time 	= int(params.period*params.nrPkt*2)
+	params.path1     	= params.roopath+"/"+str(params.algo)+"/"+str(params.nrBS)+"_"+str(params.nrED)+"_"+format(params.period_mn,'03')+"_"+str(params.ps)
 
 	init.createNetwork(params)
 	params.env      = simpy.Environment()

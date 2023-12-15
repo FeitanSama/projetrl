@@ -10,21 +10,23 @@ from etc import myexp3
 from etc import mythompson
 from etc import myucb
 from etc import myklucb
-
+from etc import myeg
 
 class myServer:
 	def __init__(self, params):
-		self.params			= params
+		self.params	= params
 
 	def reload(self):
-		self.idx = 0
-		self.grix				= np.empty((self.params.nrED, self.params.nrBS))
-		self.grix[:]		= np.nan
-		self.grid				= np.zeros((self.params.nrED, self.params.nrBS))
+		self.idx 		= 0
+		self.grix		= np.empty((self.params.nrED, self.params.nrBS))
+		self.grix[:]	= np.nan
+		self.grid		= np.zeros((self.params.nrED, self.params.nrBS))
 
 
 		if self.params.algo   == "Random":
 			self.model = myrandom.Random(self.params)
+		if self.params.algo   == "Epsilon":
+			self.model = myeg.EpsilonGreedy(self.params)
 		if self.params.algo   == "ANN":
 			self.model = myann.ANN(self.params)
 		elif self.params.algo == "Q-learning":
@@ -50,9 +52,9 @@ class myServer:
 
 
 	def send(self, ed):
-		a																= self.grid[ed.id] * self.grix[ed.id]
-		b																= 0 if np.isnan(a).all() else np.nanargmax(a)
-		ed.bestbs												= self.params.bsDict[b]
+		a													= self.grid[ed.id] * self.grix[ed.id]
+		b													= 0 if np.isnan(a).all() else np.nanargmax(a)
+		ed.bestbs											= self.params.bsDict[b]
 		ed.prx_mean											= ed.H[ed.bestbs.id].prx_mean
 		ed.toa_mean											= ed.H[ed.bestbs.id].toa_mean
 		ed.etx_mean											= ed.H[ed.bestbs.id].etx_mean
