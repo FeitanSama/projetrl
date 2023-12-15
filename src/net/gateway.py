@@ -46,10 +46,10 @@ class myBS():
 				a1 							=  tmp.s[pkt.freq][tmp.sf - 7]
 				a2 							= self.S[pkt.freq][tmp.sf - 7]
 				w1 							= 1 + self.params.capture if self.params.capture !=0 else 1
-				w2 							=     self.params.capture if self.params.capture !=0 else 1
-				tmp.lost				= 1 if np.any(w1 * a1 < self.params.interaction[tmp.sf - 7] * a2) else tmp.lost
-				tmp.collision		= 1 if w1 * a1 < w2 * a2 or a1 < a2 else tmp.collision
-			tmp.ok						= 0 if tmp.lost or tmp.collision else tmp.ok
+				w2 							= self.params.capture if self.params.capture !=0 else 1
+				tmp.lost					= 1 if np.any(w1 * a1 < self.params.interaction[tmp.sf - 7] * a2) else tmp.lost
+				tmp.collision				= 1 if w1 * a1 < w2 * a2 or a1 < a2 else tmp.collision
+			tmp.ok							= 0 if tmp.lost or tmp.collision else tmp.ok
 		if pkt.ok:
 			return 1
 		return 0
